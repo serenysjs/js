@@ -22,7 +22,9 @@
 		"dist"
 	],
 	"license": "Apache-2.0",
-	"dependencies": {},
+	"dependencies": {
+		"undici": "^5.22.1"
+	},
 	"devDependencies": {
 		"@types/node": "^20.2.5",
 		"eslint": "^8.42.0",
