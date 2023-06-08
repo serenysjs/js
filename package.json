@@ -1,6 +1,7 @@
 {
-	"name": "senerys",
-	"version": "0.1.0",
+	"name": "serenys",
+	"description": "Serenys server side client library in JavaScript for Node.js",
+	"version": "0.1.1",
 	"scripts": {
 		"build": "tsup",
 		"lint": "prettier --check . && eslint src --ext .mjs,.cjs,.js,.ts --format=pretty",
@@ -9,11 +10,11 @@
 	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"types": "./dist/types.d.ts",
 	"exports": {
 		"import": "./dist/index.mjs",
 		"require": "./dist/index.js",
-		"types": "./dist/index.d.ts"
+		"types": "./dist/types.d.ts"
 	},
 	"directories": {
 		"lib": "src"
@@ -39,5 +40,14 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"keywords": ["api", "serenys", "discord"],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/serenysjs/js.git"
+	},
+	"bugs": {
+		"url": "https://github.com/serenysjs/js/issues"
+	},
+	"homepage": "https://serenys.xyz/"
 }

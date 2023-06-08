@@ -36,3 +36,5 @@ interface UserAccount {
     type?: string;
     verified?: boolean;
 }
+
+declare module "serenys" {}

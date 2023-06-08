@@ -5,6 +5,8 @@
 import { fetch } from 'undici'
 import type { UserAccount, UserResponse } from './types.d.ts';
 
+export { version } from "../package.json"
+
 enum PremiumType {
     BASIC = 'Basic',
     NITRO = 'Nitro',
@@ -61,9 +63,9 @@ class UserEndpoint {
             },
             profile: {
                 badges: response.user_profile?.badges_array as string[],
-                aboutMe: response.user_profile?.aboutMe ?? null,
-                avatarUrl: response.user_profile?.avatarUrl ?? null,
-                bannerUrl: response.user_profile?.bannerUrl ?? null,
+                aboutMe: response.user_profile?.about_me ?? null,
+                avatarUrl: response.user_profile?.avatar_url ?? null,
+                bannerUrl: response.user_profile?.banner_url ?? null,
                 connectedAccounts: response.connected_accounts as UserAccount[]
             },
             boost: response.boost ? {
@@ -79,12 +81,12 @@ class UserEndpoint {
 class Serenys {
     public users: UserEndpoint;
 
-  /**
-   * Class to consume the Serenys API.
-   *
-   * @param {boolean} throwErrors A boolean to define if the functions will return errors or not. (default is true)
-   */
-    public constructor(throwErrors: boolean = true ) {
+    /**
+     * Class to consume the Serenys API.
+     *
+     * @param {boolean} throwErrors A boolean to define if the functions will return errors or not. (default is true)
+     */
+    public constructor(throwErrors: boolean = true) {
         this.users = new UserEndpoint(throwErrors)
     }
 }
