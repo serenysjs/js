@@ -30,36 +30,17 @@ $ pnpm install serenys
 
 - Fetching a Discord User's Information
 
-### CommonJS
-
 ```javascript
-const { Serenys } = require('serenys');
+import { Serenys } from 'serenys';
 
-async function fetchUserInfo(userId) {
-	const client = new Serenys();
-	const data = await client.users.get(userId);
+async function fetchUser(userId) {
+	const serenys = new Serenys();
+	const data = await serenys.discord.users.get(userId);
 
 	return console.log(data);
 }
 
 fetchUserInfo('764624695169384478');
-```
-
-### ESModules
-
-> You can use TypeScript too.
-
-```javascript
-import { Serenys } from "serenys";
-
-async fetchUserInfo(userId) {
-    const client = new Serenys();
-    const data = await client.users.get(userId);
-
-    return console.log(data);
-}
-
-fetchUserInfo("764624695169384478");
 ```
 
 ## FAQ
