@@ -10,10 +10,6 @@ export type ExtractEndpoint<Method extends string, Path extends string> = Extrac
 
 export type PathsFor<M extends Method> = Extract<Endpoints, { method: M }>['path'];
 
-export interface APIClientOptions {
-	readonly baseUrl: string;
-}
-
 export class SerenysAPIError extends Error {
 	public readonly status: number;
 
@@ -29,14 +25,10 @@ export class SerenysAPIError extends Error {
 }
 
 export class APIClient {
-	// @ts-expect-error - This is private
-	private readonly options;
-
 	public readonly url;
 
-	public constructor(options: APIClientOptions) {
-		this.options = options;
-		this.url = options.baseUrl;
+	public constructor() {
+		this.url = 'https://serenys.xyz/api';
 	}
 
 	public async get<Path extends PathsFor<'GET'>>(path: Path, init?: RequestInit) {
