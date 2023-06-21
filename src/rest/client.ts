@@ -1,14 +1,10 @@
 import { URL } from 'node:url';
-import { fetch, Headers, Request } from '../util/fetch.js';
-import type { Method } from '../util/types.js';
+import { fetch, Request } from '../util/fetch.js';
 import type { APIResponse, Endpoints, ErroredAPIResponse } from './endpoints.js';
 
-export type ExtractEndpoint<Method extends string, Path extends string> = Extract<
-	Endpoints,
-	{ method: Method; path: Path }
->;
+export type ExtractEndpoint<Path extends string> = Extract<Endpoints, { path: Path }>;
 
-export type PathsFor<M extends Method> = Extract<Endpoints, { method: M }>['path'];
+export type PathsFor = Endpoints['path'];
 
 export class SerenysAPIError extends Error {
 	public readonly status: number;
@@ -31,8 +27,8 @@ export class APIClient {
 		this.url = 'https://serenys.xyz/api';
 	}
 
-	public async get<Path extends PathsFor<'GET'>>(path: Path, init?: RequestInit) {
-		return this.request<Extract<Endpoints, { method: 'GET'; path: Path }>['res']>('GET', path, init);
+	public async get<Path extends PathsFor>(path: Path) {
+		return this.request<Extract<Endpoints, { path: Path }>['res']>(path);
 	}
 
 	private async executeRequest<T>(request: Request): Promise<T> {
@@ -40,7 +36,7 @@ export class APIClient {
 			keepalive: true,
 		});
 
-		if (response.status === 204 || !response.headers.get('Content-Type')?.includes('application/json')) {
+		if (response.status === 204) {
 			return undefined as unknown as T;
 		}
 
@@ -59,18 +55,10 @@ export class APIClient {
 		return result as unknown as T;
 	}
 
-	private async request<T>(method: Method, path: string, init: RequestInit = {}) {
+	private async request<T>(path: string) {
 		const url = new URL(`${this.url}${path}`);
 
-		const headers = new Headers({
-			...init?.headers,
-		});
-
-		const request = new Request(url, {
-			method,
-			headers,
-			...init,
-		});
+		const request = new Request(url);
 
 		return this.executeRequest<T>(request);
 	}

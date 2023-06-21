@@ -42,7 +42,6 @@ export enum PremiumType {
 }
 
 export type DiscordUserEndpoints = Endpoint<
-	'GET',
 	`/discord/users/${string}`,
 	{
 		boost: Boost;

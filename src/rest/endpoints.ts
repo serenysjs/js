@@ -1,5 +1,4 @@
 import type { DiscordInviteEndpoints, DiscordUserEndpoints } from './types/discord/index.js';
-import type { Method } from './types/index.js';
 import type { InstagramFeedEndpoints } from './types/instagram/feed.js';
 import type { InstagramPostsEndpoints } from './types/instagram/posts.js';
 import type { InstagramUserEndpoints } from './types/instagram/user.js';
@@ -20,9 +19,7 @@ export interface ErroredAPIResponse {
 
 export type APIResponse = ErroredAPIResponse | SuccessfulAPIResponse;
 
-export interface Endpoint<M extends Method, Path extends string, Res, Body = undefined> {
-	body: Body;
-	method: M;
+export interface Endpoint<Path extends string, Res> {
 	path: Path;
 	res: Res;
 }

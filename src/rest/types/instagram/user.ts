@@ -28,7 +28,6 @@ export interface AccountStats {
 }
 
 export type InstagramUserEndpoints = Endpoint<
-	'GET',
 	`/instagram/users/${string}`,
 	{
 		account: Account;

@@ -30,7 +30,6 @@ export interface GuildAssets {
 }
 
 export type DiscordInviteEndpoints = Endpoint<
-	'GET',
 	`/discord/invites/${string}`,
 	{
 		guild: Guild;

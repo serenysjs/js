@@ -38,7 +38,6 @@ export interface PostMedia {
 }
 
 export type InstagramPostsEndpoints = Endpoint<
-	'GET',
 	`/instagram/posts/${string}`,
 	{
 		account: PostAccount;

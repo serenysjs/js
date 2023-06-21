@@ -19,7 +19,6 @@ export interface FeedPosts {
 }
 
 export type InstagramFeedEndpoints = Endpoint<
-	'GET',
 	`/instagram/feed/${string}`,
 	{
 		account: FeedAccount;
