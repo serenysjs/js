@@ -1,4 +1,4 @@
-import type { Endpoint } from '../../endpoints';
+import type { Endpoint } from '../../endpoints.js';
 import type { PostDimensions, PostStats } from './posts.js';
 import type { Account as UserAccount } from './user.js';
 

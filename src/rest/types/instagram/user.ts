@@ -1,4 +1,4 @@
-import type { Endpoint } from '../../endpoints';
+import type { Endpoint } from '../../endpoints.js';
 
 export interface Account {
 	bio: string | null;

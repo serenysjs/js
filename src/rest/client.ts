@@ -4,8 +4,6 @@ import type { APIResponse, Endpoints, ErroredAPIResponse } from './endpoints.js'
 
 export type ExtractEndpoint<Path extends string> = Extract<Endpoints, { path: Path }>;
 
-export type PathsFor = Endpoints['path'];
-
 export class SerenysAPIError extends Error {
 	public readonly status: number;
 
@@ -27,7 +25,7 @@ export class APIClient {
 		this.url = 'https://serenys.xyz/api';
 	}
 
-	public async get<Path extends PathsFor>(path: Path) {
+	public async get<Path extends Endpoints['path']>(path: Path) {
 		return this.request<Extract<Endpoints, { path: Path }>['res']>(path);
 	}
 

@@ -1,7 +1,9 @@
 import type { DiscordInviteEndpoints, DiscordUserEndpoints } from './types/discord/index.js';
-import type { InstagramFeedEndpoints } from './types/instagram/feed.js';
-import type { InstagramPostsEndpoints } from './types/instagram/posts.js';
-import type { InstagramUserEndpoints } from './types/instagram/user.js';
+import type {
+	InstagramFeedEndpoints,
+	InstagramPostsEndpoints,
+	InstagramUserEndpoints,
+} from './types/instagram/index.js';
 
 export interface SuccessfulAPIResponse {
 	api: {

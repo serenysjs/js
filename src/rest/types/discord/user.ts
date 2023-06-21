@@ -1,4 +1,4 @@
-import type { Endpoint } from '../../endpoints';
+import type { Endpoint } from '../../endpoints.js';
 
 export interface User {
 	discriminator: string;
@@ -27,7 +27,7 @@ export interface Boost {
 export interface ConnectedAccount {
 	id?: string;
 	metadata?: {
-		[key: string]: boolean | number | string | null | undefined;
+		[key: string]: boolean | number | string;
 	};
 	name?: string;
 	type?: string;
@@ -44,8 +44,8 @@ export enum PremiumType {
 export type DiscordUserEndpoints = Endpoint<
 	`/discord/users/${string}`,
 	{
-		boost: Boost;
-		connected_account: ConnectedAccount[];
+		boost?: Boost | null;
+		connected_accounts: ConnectedAccount[];
 		legacy_username: string | null;
 		user: User;
 		user_profile: UserProfile;

@@ -1,27 +1,34 @@
 {
 	"name": "serenys",
-	"version": "0.2.1",
+	"version": "0.2.3",
 	"description": "Serenys server side client library in JavaScript for Node.js",
 	"scripts": {
 		"test": "vitest run",
 		"build": "tsup",
-		"lint": "prettier --check . && eslint src --ext .mjs,.cjs,.js,.ts --format=pretty",
-		"format": "prettier --write . && eslint src --ext .mjs,.cjs,.js,.ts --fix --format=pretty",
-		"fmt": "pnpm format"
+		"lint": "prettier --check . && eslint src __tests__ --ext .mjs,.cjs,.js,.ts --format=pretty",
+		"format": "prettier --write . && eslint src __tests__ --ext .mjs,.cjs,.js,.ts --fix --format=pretty",
+		"fmt": "pnpm format",
+		"prepack": "pnpm lint && pnpm test && pnpm build"
 	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"exports": {
+		"types": "./dist/index.d.ts",
 		"import": "./dist/index.mjs",
-		"require": "./dist/index.js",
-		"types": "./dist/index.d.ts"
+		"require": "./dist/index.js"
 	},
 	"directories": {
-		"lib": "src"
+		"lib": "src",
+		"test": "__tests__"
 	},
 	"files": [
 		"dist"
+	],
+	"contributors": [
+		"Nicolas Ribeiro <business@niskii.dev>",
+		"Linn <linn@serenys.xyz>",
+		"Tsuki <tsuki@serenys.xyz>"
 	],
 	"license": "Apache-2.0",
 	"keywords": [
@@ -43,7 +50,7 @@
 	"devDependencies": {
 		"@types/node": "^20.3.1",
 		"eslint": "^8.43.0",
-		"eslint-config-neon": "^0.1.47",
+		"eslint-config-zohy": "^0.1.0",
 		"eslint-formatter-pretty": "^5.0.0",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
