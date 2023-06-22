@@ -1,4 +1,5 @@
 import type { Endpoint } from '../../endpoints.js';
+import type { Dimensions, TotalAndFormatted } from './types.js';
 import type { Account as UserAccount } from './user.js';
 
 export type PostAccount = Pick<UserAccount, 'full_name' | 'username'>;
@@ -9,29 +10,14 @@ export interface Post {
 	id: string;
 }
 
-export interface Likes {
-	formatted: string;
-	total: number;
-}
-
-export interface Comments {
-	formatted: string;
-	total: number;
-}
-
 export interface PostStats {
-	comments: Comments;
-	likes: Likes;
+	comments: TotalAndFormatted;
+	likes: TotalAndFormatted;
 	media_count: number;
 }
 
-export interface PostDimensions {
-	height: number;
-	width: number;
-}
-
 export interface PostMedia {
-	dimensions: PostDimensions;
+	dimensions: Dimensions;
 	id: string;
 	type: string;
 	url: string;

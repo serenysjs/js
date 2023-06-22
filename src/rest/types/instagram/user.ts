@@ -1,4 +1,5 @@
 import type { Endpoint } from '../../endpoints.js';
+import type { TotalAndFormatted } from './types.js';
 
 export interface Account {
 	bio: string | null;
@@ -11,19 +12,9 @@ export interface Account {
 	website: string | null;
 }
 
-export interface AccountFollowers {
-	formatted: string;
-	total: number;
-}
-
-export interface AccountFollowing {
-	formatted: string;
-	total: number;
-}
-
 export interface AccountStats {
-	followers: AccountFollowers;
-	following: AccountFollowing;
+	followers: TotalAndFormatted;
+	following: TotalAndFormatted;
 	posts_count: number;
 }
 

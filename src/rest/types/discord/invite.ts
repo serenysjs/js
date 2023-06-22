@@ -13,20 +13,20 @@ export interface Channel {
 
 export interface Guild {
 	boosts_count: number;
-	description: string;
+	description: string | null;
 	id: string;
 	name: string;
 	nsfw: boolean;
 	nsfw_level: number;
 	online_members: number;
 	total_members: number;
-	vanity_url: string;
+	vanity_url: string | null;
 }
 
 export interface GuildAssets {
-	banner_url: string;
-	icon_url: string;
-	splash_url: string;
+	banner_url: string | null;
+	icon_url: string | null;
+	splash_url: string | null;
 }
 
 export type DiscordInviteEndpoints = Endpoint<

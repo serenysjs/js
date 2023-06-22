@@ -1,12 +1,13 @@
 import type { Endpoint } from '../../endpoints.js';
-import type { PostDimensions, PostStats } from './posts.js';
+import type { PostStats } from './posts.js';
+import type { Dimensions } from './types.js';
 import type { Account as UserAccount } from './user.js';
 
 export type FeedAccount = Pick<UserAccount, 'id' | 'username'>;
 export type FeedStats = Pick<PostStats, 'comments' | 'media_count'>;
 
 export interface FeedMedia {
-	dimensions: PostDimensions;
+	dimensions: Dimensions;
 	url: string;
 }
 
