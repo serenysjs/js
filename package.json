@@ -1,6 +1,6 @@
 {
 	"name": "serenys",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"description": "Serenys server side client library in JavaScript for Node.js",
 	"scripts": {
 		"test": "vitest run",
@@ -34,7 +34,8 @@
 	"keywords": [
 		"api",
 		"serenys",
-		"discord"
+		"discord",
+		"node"
 	],
 	"repository": {
 		"type": "git",
@@ -43,7 +44,7 @@
 	"bugs": {
 		"url": "https://github.com/serenysjs/js/issues"
 	},
-	"homepage": "https://serenys.xyz/",
+	"homepage": "https://serenys.xyz",
 	"dependencies": {
 		"cross-fetch": "^3.1.6"
 	},

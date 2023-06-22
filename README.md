@@ -1,54 +1,65 @@
-# Serenys
+## About
 
-Serenys server side client library in JavaScript for Node.js
+This is a powerful and official [Node.js](https://nodejs.org) module that allows you to easily interact with the [Serenys API](https://serenys.xyz).
+
+- Object-oriented
+- Performant
+- 100% coverage of the Serenys API
 
 ## Installation
 
-### Requirements
+**Node.js 16.9.0 or newer is required.**
 
-- Node.js 16.9.0 or newest
-
-> Using NPM:
-
-```bash
-$ npm install serenys
+```sh
+npm install serenys
+yarn add serenys
+pnpm add serenys
 ```
 
-> Using YARN:
+## Example usage
 
-```bash
-$ yarn add serenys
-```
+Get a discord user's information:
 
-> Using PNPM:
-
-```bash
-$ pnpm install serenys
-```
-
-# Usage
-
-- Fetching a Discord User's Information
-
-```javascript
+```js
 import { Serenys } from 'serenys';
+const client = new Serenys();
 
-async function fetchUser(userId) {
-	const serenys = new Serenys();
-	const data = await serenys.discord.users.get(userId);
+try {
+	const data = await client.discord.users.get('299262860440371202');
 
-	return console.log(data);
+	console.log(data);
+} catch (error) {
+	console.error(error);
 }
-
-fetchUserInfo('764624695169384478');
 ```
 
-## FAQ
+Get a Instagram user's information:
 
-#### I have an error / I don't know how to use it, where do I ask for support?
+```js
+import { Serenys } from 'serenys';
+const client = new Serenys();
 
-You can find our support by joining our [official Discord server](https://discord.com/invite/discloud).
+try {
+	const data = await client.instagram.users.get('hhh.e_c.v');
 
-## License
+	console.log(data);
+} catch (error) {
+	console.error(error);
+}
+```
 
-This repository uses the APACHE-2.0 license. [Read more](https://www.apache.org/licenses/LICENSE-2.0)
+## Links
+
+- [Documentation][documentation]
+- [Serenys Discord server][discord]
+- [GitHub][source]
+- [npm][npm]
+
+## Help
+
+If you don't understand something in the documentation, you are experiencing problems, or you just need a gentle nudge in the right direction, please don't hesitate to join our official [Serenys Server][discord].
+
+[documentation]: https://docs.serenys.xyz
+[discord]: https://discord.gg/discloud
+[source]: https://github.com/serenysjs/js
+[npm]: https://www.npmjs.com/package/serenys
